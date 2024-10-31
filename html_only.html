@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login and Signup Page</title>
+
+</head>
+<body>
+  <div class="container">
+    <div class="form-container">
+      <div class="form-toggle">
+        <button id="loginBtn">Login</button>
+        <button id="signupBtn">Sign Up</button>
+      </div>
+
+      <!-- Login Form -->
+      <form action="login_process.php" method="POST" class="form active" id="loginForm">
+        <h2>Login</h2>
+        <label for="loginUsername">Username</label>
+        <input type="text" id="loginUsername" name="username" required>
+
+        <label for="loginPassword">Password</label>
+        <input type="password" id="loginPassword" name="password" required>
+
+        <input type="submit" value="Login">
+
+        <p>Forgot your password? <a href="#">Click here</a></p>
+      </form>
+
+      <!-- Signup Form -->
+      <form action="signup_process.php" method="POST" class="form" id="signupForm">
+        <h2>Sign Up</h2>
+        <label for="signupUsername">Username</label>
+        <input type="text" id="signupUsername" name="username" required>
+
+        <label for="signupEmail">Email</label>
+        <input type="email" id="signupEmail" name="email" required>
+
+        <label for="signupPassword">Password</label>
+        <input type="password" id="signupPassword" name="password" required>
+
+        <input type="submit" value="Sign Up">
+
+        <p>Already have an account? <a href="#" id="accountLink">Login here</a></p>
+      </form>
+    </div>
+  </div>
+</body>
+</html>
