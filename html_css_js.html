@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login and Signup Page</title>
+  <style>
+  body {
+      font-family: Arial, sans-serif;
+      background: #f4f4f4;
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      display: flex;
+      height: 100vh;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .form-container {
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      width: 350px;
+      overflow: hidden;
+    }
+
+    .form-toggle {
+      display: flex;
+      background: #3498db;
+    }
+
+    .form-toggle button {
+      flex: 1;
+      padding: 15px;
+      background: none;
+      border: none;
+      color: #fff;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .form-toggle button:hover {
+      background: #2980b9;
+    }
+
+    .form {
+      padding: 30px;
+      display: none;
+    }
+
+    .form.active {
+      display: block;
+    }
+
+    .form h2 {
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    .form label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold;
+    }
+
+    .form input[type="text"],
+    .form input[type="email"],
+    .form input[type="password"] {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    .form input[type="submit"] {
+      width: 100%;
+      padding: 10px;
+      background: #3498db;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+
+    .form input[type="submit"]:hover {
+      background: #2980b9;
+    }
+
+    .form p {
+      margin-top: 10px;
+      text-align: center;
+    }
+
+    .form p a {
+      color: #3498db;
+      text-decoration: none;
+    }
+
+    @media (max-width: 400px) {
+      .form-container {
+        width: 90%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="form-container">
+      <div class="form-toggle">
+        <button id="loginBtn">Login</button>
+        <button id="signupBtn">Sign Up</button>
+      </div>
+
+      <!-- Login Form -->
+      <form action="login_process.php" method="POST" class="form active" id="loginForm">
+        <h2>Login</h2>
+        <label for="loginUsername">Username</label>
+        <input type="text" id="loginUsername" name="username" required>
+
+        <label for="loginPassword">Password</label>
+        <input type="password" id="loginPassword" name="password" required>
+
+        <input type="submit" value="Login">
+
+        <p>Forgot your password? <a href="#">Click here</a></p>
+      </form>
+
+      <!-- Signup Form -->
+      <form action="signup_process.php" method="POST" class="form" id="signupForm">
+        <h2>Sign Up</h2>
+        <label for="signupUsername">Username</label>
+        <input type="text" id="signupUsername" name="username" required>
+
+        <label for="signupEmail">Email</label>
+        <input type="email" id="signupEmail" name="email" required>
+
+        <label for="signupPassword">Password</label>
+        <input type="password" id="signupPassword" name="password" required>
+
+        <input type="submit" value="Sign Up">
+
+        <p>Already have an account? <a href="#" id="accountLink">Login here</a></p>
+      </form>
+    </div>
+  </div>
+
+  <script>
+   // Get elements
+    const loginBtn = document.getElementById('loginBtn');
+    const signupBtn = document.getElementById('signupBtn');
+    const loginForm = document.getElementById('loginForm');
+    const signupForm = document.getElementById('signupForm');
+    const accountLink = document.getElementById('accountLink');
+
+    // Show Login Form
+    loginBtn.addEventListener('click', () => {
+      loginForm.classList.add('active');
+      signupForm.classList.remove('active');
+    });
+
+    // Show Signup Form
+    signupBtn.addEventListener('click', () => {
+      signupForm.classList.add('active');
+      loginForm.classList.remove('active');
+    });
+
+    // Switch to Login Form from the link
+    accountLink.addEventListener('click', (e) => {
+      e.preventDefault();
+      loginForm.classList.add('active');
+      signupForm.classList.remove('active');
+    }); 
+  </script>
+</body>
+</html>
